@@ -56,7 +56,7 @@
 + git reset --hard <commit>
     指定されたコミットに戻り、それ以降の全ての変更を破棄する
 
-###　変更の同期
+### 変更の同期
 + git push <alias> <branch>
     全てのローカルブランチのコミットをGitHubにアップロードする
 + git pull
