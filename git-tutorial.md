@@ -1,5 +1,63 @@
 # gitのコマンドについて
-## ローカルリポジトリ用のユーザー情報の設定方法
-+ git config --global user.name <name>
 
+### ローカルリポジトリ用のユーザー情報の設定方法
++ git config --global user.name <name>
+    コミット操作に付加される名前の設定
 + git config --global user.email <mail>
+    コミット操作に付加されるメールアドレスの設定
+
+### リポジトリの作成
++ git init <project-name>
+    指定した名前のローカルリポジトリの作成
++ git clone <url>
+    プロジェクトとすべてのバージョン履歴のダウンロード
+
+### 変更の作成
++ git status
+    コミット可能な全てのファイルを一覧で表示
++ git diff
+    まだステージされていないファイルの差分を表示
++ git commit -m "<message>"
+    ファイルのスナップショットをバージョン履歴内に恒久的に記録
+
+### 変更の整理
++ git branch
+    現在のリポジトリ上の全てのローカルブランチを一覧で表示
++ git branch <branch-name>
+    新規ブランチの作成
++ git checkout <branch-name>
+    指定されたブランチに切り替えて作業ディレクトリを更新
++ git merge <branch>
+    指定されたブランチの履歴を現在のブランチに統合
++ git branch -d <branch-name>
+    指定されたブランチを削除
++ git rm <file>
+    作業ディレクトリからファイルを削除し、その削除をステージする
+
+### 断片の保存
++ git stash
+    トラックされているファイルのうち変更のあるものを全て一時的に保存する
++ git stash pop
+    直近に一時保存されたファイルを復旧する
++ git stash list
+    全ての一時保存された変更セットを一覧で表示する
++ git stash drop
+    直近に一時保存された変更セットを破棄する
+
+### 履歴の確認
++ git log
+    現在のブランチのバージョン履歴を一覧で表示
++ git log <first-branch>...<second-branch>
+    2つのブランチ間の差分を表示
+
+### コミットの修正
++ git reset <commit>
+    <commit>以降すべてのコミットを取り消し、ローカルで変更を保持する
++ git reset --hard <commit>
+    指定されたコミットに戻り、それ以降の全ての変更を破棄する
+
+###　変更の同期
++ git push <alias> <branch>
+    全てのローカルブランチのコミットをGitHubにアップロードする
++ git pull
+   ブックマークの履歴をダウンロードして変更を統合する
