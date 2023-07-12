@@ -1,4 +1,7 @@
-# gitの機能について
+# git-tutorial
+
+## gitの機能について
+
 gitとは分散管理型のバージョン管理システムであり、ファイルのバージョン管理を簡単にするツールである。  
 複数人で同じファイルを編集したり統合したりすることが容易に可能で、
 誰が、いつ、どのファイルを、どんな編集をしたかが履歴に残るので管理もしやすい。  
@@ -7,67 +10,83 @@ gitにはリモートリポジトリとローカルリポジトリが存在す�
 作業をするための基本的なコマンドはadd、commit、pull、pushの４種類である。
 これらのコマンドを使って編集や保存を行っていく。
 
-
-# gitのコマンドについて
+## gitのコマンドについて
 
 ### ローカルリポジトリ用のユーザー情報の設定方法
-+ git config --global user.name <name>  
+
++ `git config --global user.name <name>`  
     コミット操作に付加される名前の設定 
-+ git config --global user.email <mail>  
++ `git config --global user.email <mail>`  
     コミット操作に付加されるメールアドレスの設定
 
 ### リポジトリの作成
-+ git init <project-name>  
+
++ `git init <project-name>`  
     指定した名前のローカルリポジトリの作成
-+ git clone <url>  
++ `git clone <url>`  
     プロジェクトとすべてのバージョン履歴のダウンロード
 
 ### 変更の作成
-+ git status  
+
++ `git status`  
     コミット可能な全てのファイルを一覧で表示
-+ git diff  
++ `git diff`  
     まだステージされていないファイルの差分を表示
-+ git commit -m "<message>"  
++ `git commit -m "<message>"`  
     ファイルのスナップショットをバージョン履歴内に恒久的に記録
 
 ### 変更の整理
-+ git branch  
+
++ `git branch`  
     現在のリポジトリ上の全てのローカルブランチを一覧で表示
-+ git branch <branch-name>  
++ `git branch <branch-name>`  
     新規ブランチの作成
-+ git checkout <branch-name>  
++ `git checkout <branch-name>`  
     指定されたブランチに切り替えて作業ディレクトリを更新
-+ git merge <branch>  
++ `git merge <branch>`  
     指定されたブランチの履歴を現在のブランチに統合
-+ git branch -d <branch-name>  
++ `git branch -d <branch-name>`  
     指定されたブランチを削除
-+ git rm <file>  
++ `git rm <file>`  
     作業ディレクトリからファイルを削除し、その削除をステージする
 
 ### 断片の保存
-+ git stash  
+
++ `git stash`  
     トラックされているファイルのうち変更のあるものを全て一時的に保存する
-+ git stash pop  
++ `git stash pop`  
     直近に一時保存されたファイルを復旧する
-+ git stash list  
++ `git stash list`  
     全ての一時保存された変更セットを一覧で表示する
-+ git stash drop  
++ `git stash drop`  
     直近に一時保存された変更セットを破棄する
 
 ### 履歴の確認
-+ git log  
+
++ `git log`  
     現在のブランチのバージョン履歴を一覧で表示
-+ git log <first-branch>...<second-branch>  
++ `git log <first-branch>...<second-branch>`  
     2つのブランチ間の差分を表示
 
 ### コミットの修正
-+ git reset <commit>  
+
++ `git reset <commit>`  
     <commit>以降すべてのコミットを取り消し、ローカルで変更を保持する
-+ git reset --hard <commit>  
++ `git reset --hard <commit>`  
     指定されたコミットに戻り、それ以降の全ての変更を破棄する
 
 ### 変更の同期
-+ git push <alias> <branch>  
+
++ `git push <alias> <branch>`  
     全てのローカルブランチのコミットをGitHubにアップロードする
-+ git pull  
++ `git pull`  
    ブックマークの履歴をダウンロードして変更を統合する
+
+## GitHub flow
+
+GitHub flow は、GitHub で用いられるブランチの運用方法である。
+まず、メインブランチから新しいブランチを作成し、そのブランチで作業を行う。
+その後、作成したブランチからメインブランチに向けてプルリクエスト (PR) を送る。
+PR が送られたリポジトリにアクセス権のあるユーザからのレビューを受け、問題がなければメインブランチにマージされる。
+
+これのメリットとして、メインブランチに影響を与えずに作業ができたり、共同編集者からのレビューを受ける機会ができたりする。
